@@ -1,0 +1,57 @@
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+#include <malloc.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void main(){
+	setlocale(LC_ALL,"RUS");
+	struct students{
+		char fm[15];
+		char n[15],fc[15];
+		char gr[15];
+	} st[3];
+	
+	struct stud_s{
+		char fmp[15];
+		char np[15],fcp[15];
+		char grp[15];
+	} srp;
+
+	for (int i=0;i<3;i++){
+	printf("Фамилия студента:\n");
+	scanf("%15s",st[i].fm);
+	}
+	for (int i=0;i<3;i++){
+	printf("Имя студента: %s \n",st[i].fm);
+	scanf("%15s",st[i].n);
+	}
+	for (int i=0;i<3;i++){
+	printf("Факультет студента: %s %s \n",st[i].fm, st[i].n);
+	scanf("%15s",st[i].fc);
+	}
+	for (int i=0;i<3;i++){
+	printf("Группа студента: %s %s %s \n", st[i].fm, st[i].n, st[i].fc);
+	scanf("%15s",st[i].gr);
+	}
+	printf("\n\tПоиск студента \n");
+	printf("Введите фамилию студента: \n");scanf("%15s",srp.fmp);
+	printf("Введите имя студента: \n");scanf("%15s",srp.np);
+	printf("Введите факультет: \n");scanf("%15s",srp.fcp);
+	printf("Введите номер группы: \n");scanf("%15s",srp.grp);
+
+	bool ch=0;
+
+	for (int i=0;i<3;i++){
+		if(strcmp(st[i].fm, srp.fmp)==0 && strcmp(st[i].n, srp.np)==0 && strcmp(st[i].fc, srp.fcp)==0 && strcmp(st[i].gr, srp.grp)==0 ){
+			printf("Найденный студент: %s %s %s %s\n",st[i].fm, st[i].n, st[i].fc, st[i].gr);
+			ch=1;
+		}
+	}
+
+		if (ch==0){
+			printf("НЕ найдено");
+		}
+	getch();
+}
