@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+#include <malloc.h>
+#include <stdlib.h>
+
+int main()
+{
+    int **a;
+    int rows, colls;
+    int n = 0;
+    int k = 0;
+    system("cls");
+    printf("rows:");
+    scanf("%d", &rows);
+    printf("colls:");
+    scanf("%d",&colls);
+    a = (int**)malloc(rows * sizeof(int*));
+    
+    for (int i = 0; i < rows; i++)
+    {
+        a[i] = (int*)malloc(colls * sizeof(int));
+        for (int j = 0; j < colls; j++)
+        {
+            a[i][j] = rand() % 100;
+            printf("a[%d][%d]=%3d ",i ,j, a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for (int j = 0; j < colls; j++)
+    {
+        for (int i = 0; i < rows; i++)
+        {
+            n += a[i][j];
+        }
+        printf("Sum[%d]=%d\n",k ,n);
+        n = 0;
+        k++;
+    }
+    for (int i = 0; i < rows; i++)
+        free(a[i]);
+    free(a);
+    getchar();
+    return 0;
+}
