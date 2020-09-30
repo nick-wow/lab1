@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+int main()
+{
+int max,min;
+const int n=10;
+int a[n];
+
+for(int i=0;i<n;i++)
+	{
+		a[i]=rand()%50;
+		printf("%d ",a[i]);
+}
+max = a[0];
+min = a[0];
+for(int i=0;i<n;i++)
+	{
+	if(a[i]>max)
+		{
+		max = a[i];
+		}
+	if(a[i]<min)
+		{
+		min = a[i];
+		}	
+	}
+int b[n];
+int c=0;
+printf("\nRazn = %d\n", max-min);
+for(int i = n-1;i>=0;i--,c++){
+	b[c]=a[i];
+	printf("b[%d]=%d\n",c,b[c]);
+}
+max = b[0];
+min = b[0];
+for(int i=0;i<n;i++)
+	{
+	if(b[i]>max)
+		{
+		max = b[i];
+		}
+	if(b[i]<min)
+		{
+		min = b[i];
+		}	
+	}
+printf("\nRazn = %d\n", max-min);
+system("pause");
+return 0;
+}
